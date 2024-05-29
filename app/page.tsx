@@ -1,9 +1,8 @@
-import Image from "next/image";
+import { createClient } from '@/utils/supabase/server';
 
-export default function Home() {
-  return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      hello
-    </main>
-  );
+export default async function Notes() {
+  const supabase = createClient();
+  const { data: lessons } = await supabase.from('lesson').select();
+
+  return <pre>{JSON.stringify(lessons, null, 2)}</pre>;
 }
