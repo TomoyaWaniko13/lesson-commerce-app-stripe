@@ -1,13 +1,9 @@
 import Link from 'next/link';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Database } from '@/types/supabase';
+import { Database, supabase } from '@/types/supabase';
 import { createClient } from '@supabase/supabase-js';
 
 const getAllLessons = async () => {
-  const supabase = createClient<Database>(
-    'https://hrmdgeryfnbhfwkkucro.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhybWRnZXJ5Zm5iaGZ3a2t1Y3JvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTcwMjAxOTQsImV4cCI6MjAzMjU5NjE5NH0.xN_SoR_TfzhsLF_prYWEErqvYm3qe064_0x2hfzvP4o',
-  );
   const { data: lessons } = await supabase.from('lesson').select();
   return lessons;
 };

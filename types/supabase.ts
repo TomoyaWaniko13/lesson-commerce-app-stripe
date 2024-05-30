@@ -1,3 +1,10 @@
+import { createClient } from '@supabase/supabase-js';
+
+export const supabase = createClient<Database>(
+  'https://hrmdgeryfnbhfwkkucro.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImhybWRnZXJ5Zm5iaGZ3a2t1Y3JvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTcwMjAxOTQsImV4cCI6MjAzMjU5NjE5NH0.xN_SoR_TfzhsLF_prYWEErqvYm3qe064_0x2hfzvP4o',
+);
+
 export type Json = string | number | boolean | null | { [key: string]: Json | undefined } | Json[];
 
 export type Database = {
